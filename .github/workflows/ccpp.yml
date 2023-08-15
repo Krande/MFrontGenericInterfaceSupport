@@ -23,6 +23,7 @@ jobs:
             Mfront
     - name: cmake
       run: |
+         export TFELHOME=$CONDA_PREFIX
          cmake -DCMAKE_BUILD_TYPE=Release . -Denable-c-bindings=ON  -Denable-fortran-bindings=OFF -Denable-python-bindings=ON -Denable-portable-build=ON -Denable-julia-bindings=OFF \
                -DPYTHON_EXECUTABLE:FILEPATH="${CONDA_PREFIX}/bin/python" \
                -DPYTHON_LIBRARY:FILEPATH="$CONDA_PREFIX/lib/libpython310.so" \

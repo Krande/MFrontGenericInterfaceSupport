@@ -24,8 +24,8 @@ jobs:
     - name: cmake
       run: |
          cmake -DCMAKE_BUILD_TYPE=Release . -Denable-c-bindings=ON  -Denable-fortran-bindings=OFF -Denable-python-bindings=ON -Denable-portable-build=ON -Denable-julia-bindings=OFF \
-               -DPYTHON_EXECUTABLE:FILEPATH="${PYTHON}" \
-               -DPYTHON_LIBRARY:FILEPATH="$CONDA_PREFIX/lib/libpython${PY_VER}.so" \
+               -DPYTHON_EXECUTABLE:FILEPATH="${CONDA_PREFIX}/bin/python" \
+               -DPYTHON_LIBRARY:FILEPATH="$CONDA_PREFIX/lib/libpython310.so" \
                -DPYTHON_LIBRARY_PATH:PATH="$CONDA_PREFIX/lib"
     - name: make
       run: make

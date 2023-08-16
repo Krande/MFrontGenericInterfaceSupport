@@ -16,7 +16,7 @@ jobs:
          create-args: >-
             python=3.9
             numpy
-            mfront 4.1.0
+            mfront
             cmake
 
     - name: print packages

@@ -12,11 +12,9 @@ jobs:
     - uses: actions/checkout@v3
     - uses: mamba-org/setup-micromamba@v1
       with:
-         # the create command looks like this:
-         # `micromamba create -n test-env python=3.10 numpy`
          environment-name: test-env
          create-args: >-
-            python=3.10
+            python=3.9
             numpy
             mfront
     - name: print packages
@@ -33,7 +31,7 @@ jobs:
             -Denable-portable-build=ON \
             -Denable-julia-bindings=OFF \
             -DPYTHON_EXECUTABLE:FILEPATH="${CONDA_PREFIX}/bin/python" \
-            -DPYTHON_LIBRARY:FILEPATH="${CONDA_PREFIX}/lib/libpython3.10.so" \
+            -DPYTHON_LIBRARY:FILEPATH="${CONDA_PREFIX}/lib/libpython3.9.so" \
             -DPYTHON_LIBRARY_PATH:PATH="$CONDA_PREFIX/lib"
     - name: make
       run: make VERBOSE=1

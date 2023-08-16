@@ -32,7 +32,7 @@ jobs:
               -Denable-portable-build=ON \
               -Denable-julia-bindings=OFF \
               -DPYTHON_EXECUTABLE:FILEPATH="${CONDA_PREFIX}/bin/python" \
-              -DPYTHON_LIBRARY:FILEPATH="${CONDA_PREFIX}/lib/libpython310.so" \
+              -DPYTHON_LIBRARY:FILEPATH="${CONDA_PREFIX}/lib/libpython3.10.so" \
               -DPYTHON_LIBRARY_PATH:PATH="$CONDA_PREFIX/lib"
     - name: make
       run: make VERBOSE=1

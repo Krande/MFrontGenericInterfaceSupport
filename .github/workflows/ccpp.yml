@@ -4,14 +4,12 @@ on: [push]
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash -l {0}
-
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: mamba-org/setup-micromamba@v1
       with:
          # the create command looks like this:
@@ -20,10 +18,10 @@ jobs:
          create-args: >-
             python=3.10
             numpy
-            Mfront
+            mfront
     - name: print packages
       run: |
-          mamba list
+          conda list
     - name: cmake
       run: |
         export TFELHOME=$CONDA_PREFIX

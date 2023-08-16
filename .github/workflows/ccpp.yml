@@ -9,7 +9,7 @@ jobs:
     defaults:
       run:
         shell: bash -l {0}
-    
+
     steps:
     - uses: actions/checkout@v2
     - uses: mamba-org/setup-micromamba@v1

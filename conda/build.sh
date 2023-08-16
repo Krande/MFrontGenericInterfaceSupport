@@ -23,7 +23,8 @@ cmake .. \
     -DPYTHON_LIBRARY:FILEPATH="${PREFIX}/lib/libpython${python_version}.so" \
     -DPYTHON_LIBRARY_PATH:PATH="${PREFIX}/lib" \
     -DPYTHON_INCLUDE_DIRS:PATH="${PREFIX}/include" \
-    -DBoost_INCLUDE_DIRS:PATH="${PREFIX}/include;${PREFIX}/include/boost;${PREFIX}/include/boost/python"
+    -DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
+    -DUSE_EXTERNAL_COMPILER_FLAGS=ON
 
 ls $PREFIX/include/boost/python/module.hpp
 

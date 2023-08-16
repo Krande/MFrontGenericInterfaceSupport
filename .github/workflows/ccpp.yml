@@ -27,6 +27,7 @@ jobs:
       run: |
         echo "CMAKE_HAVE_LIBC_PTHREAD=${CMAKE_HAVE_LIBC_PTHREAD}"
         cmake --version
+        which cmake
         
         export TFELHOME=$CONDA_PREFIX
         cmake \
@@ -45,3 +46,21 @@ jobs:
       run: make VERBOSE=1
     - name: make check
       run: make check
+
+  boa_build:
+    defaults:
+      run:
+        shell: bash -l {0}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: mamba-org/setup-micromamba@v1
+        with:
+          environment-name: test-env
+          create-args: >-
+            boa
+
+      - name: print packages
+        run: |
+          boa build .
+        working-directory: conda

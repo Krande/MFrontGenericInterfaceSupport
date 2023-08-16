@@ -60,7 +60,7 @@ jobs:
           create-args: >-
             boa
 
-      - name: print packages
+      - name: boa build
         run: |
-          boa build .
+          boa build . --python=3.9
         working-directory: conda

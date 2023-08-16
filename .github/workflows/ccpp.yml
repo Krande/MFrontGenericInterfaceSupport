@@ -16,7 +16,8 @@ jobs:
          create-args: >-
             python=3.9
             numpy
-            mfront
+            mfront 4.1.0
+            cmake
 
     - name: print packages
       run: |
@@ -24,6 +25,9 @@ jobs:
 
     - name: cmake
       run: |
+        echo "CMAKE_HAVE_LIBC_PTHREAD=${CMAKE_HAVE_LIBC_PTHREAD}"
+        cmake --version
+        
         export TFELHOME=$CONDA_PREFIX
         cmake \
             -DCMAKE_BUILD_TYPE=Release . \

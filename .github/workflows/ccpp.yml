@@ -17,9 +17,11 @@ jobs:
             python=3.9
             numpy
             mfront
+
     - name: print packages
       run: |
           conda list
+
     - name: cmake
       run: |
         export TFELHOME=$CONDA_PREFIX
@@ -30,6 +32,8 @@ jobs:
             -Denable-python-bindings=ON \
             -Denable-portable-build=ON \
             -Denable-julia-bindings=OFF \
+            -DPYTHONLIBS_VERSION_STRING="39" \
+            -DPython_ADDITIONAL_VERSIONS="3.9" \
             -DPYTHON_EXECUTABLE:FILEPATH="${CONDA_PREFIX}/bin/python" \
             -DPYTHON_LIBRARY:FILEPATH="${CONDA_PREFIX}/lib/libpython3.9.so" \
             -DPYTHON_LIBRARY_PATH:PATH="$CONDA_PREFIX/lib"

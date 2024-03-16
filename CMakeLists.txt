@@ -31,6 +31,13 @@ option(enable-python-bindings "enable  python bindings support" OFF)
 option(enable-broken-boost-python-module-visibility-handling
   "workaround a bug in boost python which occurs on FreeBSD+clang. See https://github.com/boostorg/python/issues/173 for details" OFF)
 
+if(SITE_PACKAGES_DIR)
+  message(STATUS "site-packages directory : ${SITE_PACKAGES_DIR}")
+else ()
+  set(SITE_PACKAGES_DIR "bin/python${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}/site-packages")
+  message(STATUS "site-packages directory : ${SITE_PACKAGES_DIR}")
+endif(SITE_PACKAGES_DIR)
+
 if(enable-python-bindings)
   find_package(PythonLibs REQUIRED)
   set(HAVE_PYTHON ON)
